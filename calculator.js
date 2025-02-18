@@ -12,11 +12,58 @@ const num1 = parseFloat(process.argv[2]);
 const operation = (process.argv[3]).toLowerCase();
 const num2 = parseFloat(process.argv[4]);
 
-let result = `Solving ${num1} ${operation} ${num2}`;
+if (operation === 'divide' && num2 === 0) {
+  console.error("Invalid Number.");
+  process.exit(1);
+}
 
-// Implementation goes here
-// if you get an error, exit with an error of 1 by calling process.exit(1);
+if (isNaN(num1)) {
+  console.error("Invalid Number.");
+  process.exit(1);
+}
 
+else if (isNaN(num2)) {
+  console.error("Invalid Number.");
+  process.exit(1);
+}
 
-console.log("result: ", result);
-process.exit(0);
+if (operation === 'add') {
+  let result = add(num1, num2);
+  console.log('result: ' + result);
+  process.exit(0);
+}
+
+else if (operation === 'subtract') {
+  let result = subtract(num1, num2);
+  console.log('result: ' + result);
+  process.exit(0);
+}
+
+else if (operation === 'times' || operation === 'multiply') {
+  let result = times(num1, num2);
+  console.log('result: ' + result);
+  process.exit(0);
+}
+
+else if (operation === 'divide') {
+  let result = divide(num1, num2);
+  console.log('result: ' + result);
+  process.exit(0);
+}
+
+else if (operation === 'modulus' || operation === 'remainder') {
+  let result = modulus(num1, num2);
+  console.log('result: ' + result);
+  process.exit(0);
+}
+
+else if (operation === 'power') {
+  let result = power(num1, num2);
+  console.log('result: ' + result);
+  process.exit(0);
+}
+
+else {
+  console.error("unknown operation.");
+  process.exit(1);
+}
